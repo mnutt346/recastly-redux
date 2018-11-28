@@ -4,24 +4,14 @@ import changeVideo from './currentVideo.js';
 import YOUTUBE_API_KEY from '../config/youtube.js';
 
 
+
 const handleVideoSearch = (q) => (
  
   //TODO:  Write an asynchronous action to handle a video search!
-//   type: '', 
-//   videos: searchYouTube({
-//     key: YOUTUBE_API_KEY,
-//     query: q
-//   }, changeVideoList(videos))
-  {type: 'SEARCH_VIDEO'}
-  
+  searchYouTube({YOUTUBE_API_KEY, q}, () => { store.dispatch(changeVideoList); } )
+
 );
 
 export default handleVideoSearch;
 
 
-// this.props.searchYouTube(options, (videos) =>
-//   this.setState({
-//     videos: videos,
-//     currentVideo: videos[0]
-//   })
-// );
