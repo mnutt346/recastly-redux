@@ -1,4 +1,5 @@
 import React from 'react';
+// import debounce from 'lodash.debounce';
  
 class Search extends React.Component {
   constructor(props) {
@@ -10,6 +11,7 @@ class Search extends React.Component {
   }
 
   handleInputChange(e) {
+    e.preventDefault();
     this.props.handleSearchInputChange(e.target.value);
     this.setState({
       value: e.target.value
