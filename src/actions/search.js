@@ -5,12 +5,19 @@ import YOUTUBE_API_KEY from '../config/youtube.js';
 import store from '../store/store.js';
 
 
-const handleVideoSearch = (q) => (
+const handleVideoSearch = (q) => {
  
   //TODO:  Write an asynchronous action to handle a video search!
-  searchYouTube({YOUTUBE_API_KEY, q}, () => { store.dispatch(changeVideoList); } )
 
-);
+
+  return function () { 
+    return { 
+      type: '', 
+      videos: searchYouTube({ YOUTUBE_API_KEY, q }, changeVideo )
+    };
+  }; 
+
+};
 
 export default handleVideoSearch;
 
