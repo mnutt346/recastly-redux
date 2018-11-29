@@ -14,19 +14,12 @@ import handleSearchChange from '../actions/search.js';
 //state and dispatch mappings.
 // const enhancer = applyMiddleware(thunk);
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state) => ({});
 
-  console.log('WHAT IS THIS STATE????' + state);
-  
-  return {
-    // active: ownProps.filter === state.visibilityFilter
-    value: state.value
-  };
-};
 
-const mapDispatchToProps = (dispatch, q) => {
+const mapDispatchToProps = (dispatch) => {
   return {
-    onClick: () => {
+    handleSearchInputChange: (q) => {
       dispatch(handleSearchChange(q));
     }
   };
@@ -34,10 +27,7 @@ const mapDispatchToProps = (dispatch, q) => {
 };
 
 
-const Connect = connect(mapStateToProps, mapDispatchToProps)(Search);
-
-var SearchContainer = Connect || null;
-
+const SearchContainer = connect(mapStateToProps, mapDispatchToProps)(Search);
 
 
 
